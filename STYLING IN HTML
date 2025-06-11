@@ -76,7 +76,7 @@ Then in the styles we use the # symbol to select the item.
    background-color: yellow;
  }
 </style>
-************************PSEUDO CODE SELECTOR
+************************PSEUDO CLASS SELECTOR
 A pseudo class is used to define a special state of an element
 Pseudo-class selector can be used to style an element based on conditions like
 Bringing cursor over (hover) an element
