@@ -1,0 +1,99 @@
+---------------------------------------------STYLING IN HTML--------------------------------
+Each element can have a style attribute to specify styles like font, size, color, etc.
+<tagname style="property:value;">
+The property can be any valid CSS property and value is a CSS value (we will see many properties later)
+<p style="color: tomato;">
+    Cupcake ipsum dolor sit amet cotton candy tootsie roll pudding. Sesame
+    snaps caramels sweet roll marshmallow tiramisu. Donut
+</p>
+This is called as inline styling in HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Styling</title>
+  </head>
+  <body>
+    <h1>How to change text color</h1>
+    <p style="color: red;">
+      Lorem ipsum dolor sit amet consectetur   adipisicing elit. Sequi, et. Nisi
+      aperiam ullam fugit, dicta consequuntur voluptas? Suscipit odit sit
+      aperiam explicabo exercitationem? Consequatur corporis dolor vitae quas
+      consectetur molestias?
+    </p>
+  </body>
+</html>
+--------------------------------------------------INTRO TO CSS----------------------------------------
+Stands for Cascading Style Sheets.
+It is a language to define styles like font, size, spacing, colors, etc to HTML elements
+Three ways of specifying styles
+Inline - Using style attribute (already did in last section)
+Internal - Using <style> tag in the head of any HTML document
+External - Specifying the styles in a separate .css file.
+CSS is written inside curly braces {} and in key value pairs which end in a semicolon
+-----------------------------------------------CSS SELECTORS ----------------------------------
+In order to apply styles efficiently we need target HTML elements on our web pages that we want to style. 
+Selectors in CSS are used to find elements we want to style
+There are multiple selectors which can be used to pick multiple or specific elements
+Common selectors are
+Element Selector - Select elements with same name
+Class Selectors - Select elements with same class attribute value
+ID selectors - Select element with a particular id
+****************ELEMENT SELECTOR
+Element selectors can be written inside the <style> tag which is generally placed inside the <head> tag of the HTML document.
+<head>
+    <style>
+        body {
+            background-color: snow;
+        }
+    </style>
+</head>
+The above snippet will set background-color of the body as snow.
+
+****************************CSS SELECTOR
+If we want to style all instances of an HTML element differently, we use the class selector.
+To use the class selector for any element we specify the class attribute for that element
+ 	<h1 class="title">Red Title</h1>
+<h1>Normal Title</h1>
+Next, we use the .class notation in our CSS to select all the elements with the specified class 
+    <style>
+        .title {
+            color: red;
+        }
+    </style>
+************************ID SELECTOR
+If we want to specifically select a particular element to change the styles
+We use the id selector to do that.
+   	<h2 class="text-red">Podcasts</h2>
+<p class="text-red">Sample text</p>
+<h2 id="books-heading">Books</h2>
+Then in the styles we use the # symbol to select the item.
+<style>
+ .text-red {
+   color: red;
+ }
+ #books-heading {
+   color: blueviolet;
+   background-color: yellow;
+ }
+</style>
+************************PSEUDO CODE SELECTOR
+A pseudo class is used to define a special state of an element
+Pseudo-class selector can be used to style an element based on conditions like
+Bringing cursor over (hover) an element
+Clicking on an element (active)
+Visited link
+:hover -> to change the styles of an element when the cursor is brought over it
+        article:hover {
+            background-color: lavender;
+        }
+Pseudo-class selector can be used to style an element based on its state
+an element is being clicked on (active)
+       all_elements: active {
+            background-color: red;
+        }
+******************LINKING STYLE SHEETS
+The <link> tag defines the relationship between the current document and an external resource.
+We use <link> tag to “link” to external style sheets.
+The rel attribute specifies the relationship between current and linked document.
+Whatever we wrote in <style> tag can be extracted into a .css file.
+<link rel="stylesheet" href="styles.css">
