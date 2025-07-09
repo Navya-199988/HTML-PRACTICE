@@ -1,0 +1,95 @@
+In programming, Semantics refers to the meaning of a piece of code — for example "what effect does running that line of JavaScript have?", or
+"what purpose or role does that HTML element have" (rather than "what does it look like?".)
+In HTML, for example, the h1 element is a semantic element, which gives the text it wraps around the role (or meaning) of "a top level heading on your page."
+<h1>This is a top level heading</h1>
+Some of the benefits from writing semantic markup are as follows:
+
+Search engines will consider its contents as important keywords to influence the page's search rankings (see SEO)
+Screen readers can use it as a signpost to help visually impaired users navigate a page
+Finding blocks of meaningful code is significantly easier than searching through endless divs with or without semantic or namespaced classes
+Suggests to the developer the type of data that will be populated
+Semantic naming mirrors proper custom element/component naming.
+
+Semantic elements
+These are some of the roughly 100 semantic elements available:
+
+<article>
+The <article> element specifies independent, self-contained content.
+An article should make sense on its own, and it should be possible to distribute it independently from the rest of the web site.
+Examples of where the <article> element can be used:
+Forum posts
+Blog posts
+User comments
+Product cards
+Newspaper articles
+
+<aside>
+The <aside> element defines some content aside from the content it is placed in (like a sidebar).
+The <aside> content should be indirectly related to the surrounding content.
+
+<figcaption>,<figure>
+The <figure> tag specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+The <figcaption> tag defines a caption for a <figure> element. The <figcaption> element can be placed as the first or as the last child of a <figure> element.
+The <img> element defines the actual image/illustration. 
+
+<footer>
+The <footer> element defines a footer for a document or section.
+A <footer> element typically contains:
+authorship information
+copyright information
+contact information
+sitemap
+back to top links
+related documents
+You can have several <footer> elements in one document.
+
+<header>
+The <header> element represents a container for introductory content or a set of navigational links.
+A <header> element typically contains:
+one or more heading elements (<h1> - <h6>)
+logo or icon
+authorship information
+Note: You can have several <header> elements in one HTML document. However, <header> cannot be placed within a <footer>, <address> or another <header> element.
+
+<nav>
+The <nav> element defines a set of navigation links.
+Notice that NOT all links of a document should be inside a <nav> element. The <nav> element is intended only for major blocks of navigation links.
+Browsers, such as screen readers for disabled users, can use this element to determine whether to omit the initial rendering of this content.
+
+<section>
+The <section> element defines a section in a document.
+ "A section is a thematic grouping of content, typically with a heading."
+Examples of where a <section> element can be used:
+Chapters
+Introduction
+News items
+Contact information.
+
+<main>
+<mark>
+<summary>
+<time>
+<details>
+<form>
+
+Why Semantic Elements?
+"A semantic Web allows data to be shared and reused across applications, enterprises, and communities."
+
+Semantic Elements in HTML
+Below is a list of some of the semantic elements in HTML.
+
+Tag	Description
+<article>	Defines independent, self-contained content
+<aside>	Defines content aside from the page content
+<details>	Defines additional details that the user can view or hide
+<figcaption>	Defines a caption for a <figure> element
+<figure>	Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+<footer>	Defines a footer for a document or section
+<header>	Specifies a header for a document or section
+<main>	Specifies the main content of a document
+<mark>	Defines marked/highlighted text
+<nav>	Defines navigation links
+<section>	Defines a section in a document
+<summary>	Defines a visible heading for a <details> element
+<time>	Defines a date/time
+
