@@ -49,7 +49,7 @@ Element selectors can be written inside the <style> tag which is generally place
 </head>
 The above snippet will set background-color of the body as snow.
 
-****************************CSS SELECTOR
+****************************CLASS SELECTOR
 If we want to style all instances of an HTML element differently, we use the class selector.
 To use the class selector for any element we specify the class attribute for that element
  	<h1 class="title">Red Title</h1>
