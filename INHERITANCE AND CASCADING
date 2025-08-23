@@ -1,0 +1,485 @@
+1. Inheritance in CSS
+
+Inheritance means some CSS properties applied to a parent element are automatically passed down to its children.
+
+Example:
+
+body {
+  color: blue; /* inherited by child elements */
+  font-family: Arial; /* inherited */
+  background-color: lightgrey; /* NOT inherited */
+}
+
+<body>
+  <div>
+    <p>This text is blue in Arial font</p>
+  </div>
+</body>
+
+
+Inherited properties:
+__________________
+color
+
+font-family, font-size, line-height
+
+visibility
+
+Not inherited by default:
+____________________________
+background
+
+border
+
+margin, padding
+
+width, height
+
+👉 You can force inheritance using:
+
+p {
+  background-color: inherit;
+}
+---------------------------------------------------
+📝 CSS Inheritance Practice Problems
+Problem 1: Color Inheritance
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    color: red;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <p>Hello CSS</p>
+  </div>
+</body>
+</html>
+❓ What will be the color of "Hello CSS"?
+
+Problem 2: Background Inheritance
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    background-color: yellow;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <p>Hello World</p>
+  </div>
+</body>
+</html>
+❓ Will <p> have a yellow background? Why or why not?
+
+Problem 3: Forced Inheritance
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  div {
+    color: blue;
+  }
+  p {
+    color: inherit;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <p>Hello Inherit</p>
+  </div>
+</body>
+</html>
+❓ What will be the color of "Hello Inherit"?
+
+Problem 4: Mixed Inheritance
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: Arial;
+    color: green;
+  }
+  p {
+    font-family: inherit;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <p>Hello Fonts</p>
+  </div>
+</body>
+</html>
+❓ What will be the font and color of "Hello Fonts"?
+
+Problem 5: Override vs Inheritance
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    color: brown;
+  }
+  p {
+    color: purple;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <p>Hello Override</p>
+  </div>
+</body>
+</html>
+❓ What will be the final color of "Hello Override"?
+
+Problem 1: Color Inheritance
+
+✅ Your Answer: RED
+✔ Correct → color is inherited, so <p> gets red from <body>.
+
+Problem 2: Background Inheritance
+
+✅ Your Answer: <p> will not get yellow background, it’s transparent
+✔ Correct → background-color is not inherited, so <p> is transparent, but it looks yellow because the parent’s yellow background shows through.
+
+Problem 3: Forced Inheritance
+
+✅ Your Answer: blue
+✔ Correct → <div> has color: blue. The <p> has color: inherit, so it inherits blue from <div>.
+
+Problem 4: Mixed Inheritance
+
+✅ Your Answer: Arial, green
+✔ Correct → font-family is inherited (Arial from <body>). color is also inherited (green), since <p> has no override.
+
+Problem 5: Override vs Inheritance
+
+✅ Your Answer: purple
+✔ Correct → body gives brown, but <p> has its own style purple, which overrides inherited color.
+__________________________________________________________________________________________________________________________________________
+2. Cascading in CSS
+
+Cascade means: When multiple rules apply to the same element, which one wins?
+
+CSS decides based on 3 rules:
+
+a) Importance
+
+!important overrides everything.
+
+p {
+  color: red !important; /* wins always */
+}
+
+b) Specificity
+
+Inline styles > IDs > Classes/Attributes/Pseudo-classes > Elements/Pseudo-elements.
+
+Selector	Specificity Value
+Inline style	1000
+#id	100
+.class / [attr] / :hover	10
+element / ::before	1
+
+Example:
+
+p { color: blue; }        /* specificity 1 */
+.text { color: green; }   /* specificity 10 */
+#para { color: red; }     /* specificity 100 */
+
+
+→ If a <p id="para" class="text">, final color = red ✅
+
+c) Source Order
+
+If specificity is the same, the last rule written wins.
+
+p { color: blue; }
+p { color: green; }
+
+
+→ Final = green
+
+Quick Analogy
+
+Inheritance = traits passed down from parents to children (like hair color).
+
+Cascading = resolving conflicts when multiple "rules" try to apply (like deciding whose opinion to follow).
+
+⚡ Example combining both:
+
+<style>
+  body { color: blue; }          /* inherited by children */
+  p { color: green; }            /* more specific than body */
+  .highlight { color: red; }     /* class overrides element */
+  #special { color: orange; }    /* id overrides class */
+  p { color: purple !important; }/* highest priority */
+</style>
+
+<p>This is normal</p>
+<p class="highlight">This is highlighted</p>
+<p id="special">This is special</p>
+
+
+👉 All <p> will end up purple because of !important.
+
+
+
+📝 Advanced CSS Inheritance + Cascading Problems
+Problem 6: ID vs Class
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .text {
+    color: blue;
+  }
+  #para {
+    color: green;
+  }
+</style>
+</head>
+<body>
+  <p id="para" class="text">Hello CSS</p>
+</body>
+</html>
+❓ What will be the color of "Hello CSS"?
+
+Problem 7: Inline Style vs CSS
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  p {
+    color: red;
+  }
+</style>
+</head>
+<body>
+  <p style="color: purple;">Hello Inline</p>
+</body>
+</html>
+❓ What will be the color of "Hello Inline"?
+
+Problem 8: !important vs Inline
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  p {
+    color: orange !important;
+  }
+</style>
+</head>
+<body>
+  <p style="color: black;">Hello Important</p>
+</body>
+</html>
+❓ What will be the color of "Hello Important"?
+
+Problem 9: Multiple Classes
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .red { color: red; }
+  .green { color: green; }
+  .blue { color: blue; }
+</style>
+</head>
+<body>
+  <p class="red green blue">Hello Classes</p>
+</body>
+</html>
+❓ What will be the color of "Hello Classes"?
+
+Problem 10: Inheritance + Override
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    color: brown;
+  }
+  div {
+    color: inherit;
+  }
+  p {
+    color: pink;
+  }
+</style>
+</head>
+<body>
+  <div>
+    <p>Hello Trick</p>
+  </div>
+</body>
+</html>
+❓ What will be the final color of "Hello Trick"?
+
+Problem 6: ID vs Class
+
+✅ Your Answer: green
+✔ Correct → ID (#para) has higher specificity (100) than class (.text, 10).
+Final = green.
+
+Problem 7: Inline Style vs CSS
+
+✅ Your Answer: purple
+✔ Correct → Inline styles have the highest specificity (1000) compared to external/embedded CSS.
+Final = purple.
+
+Problem 8: !important vs Inline
+
+✅ Your Answer: orange
+✔ Correct → Even though inline style is very strong, !important beats inline styles (unless inline also has !important).
+Final = orange.
+
+Problem 9: Multiple Classes
+
+✅ Your Answer: blue
+✔ Correct → All three classes apply, but since they have the same specificity, the last one written in CSS wins.
+Final = blue.
+
+Problem 10: Inheritance + Override
+
+✅ Your Answer: pink
+✔ Correct →
+
+body { color: brown; } → would normally pass brown down.
+
+div { color: inherit; } → inherits brown from body.
+
+But p { color: pink; } → direct rule overrides inherited color.
+Final = pink.
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    color: red;
+    opacity: 0.5;
+  }
+  p {
+    opacity: inherit;
+  }
+</style>
+</head>
+<body>
+  <p>Hello Opacity</p>
+</body>
+</html>
+
+
+color: red; on body → color is inherited by default, so <p> also gets red.
+
+opacity: 0.5; on body → opacity is NOT inherited by default.
+
+But you wrote opacity: inherit; on <p> → this forces it to take the parent’s opacity.
+
+So <p> has red color and opacity 0.5.
+
+⚡ Result:
+👉 Text "Hello Opacity" will appear red but slightly transparent (50%).
+
+
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             RECAP          >>>>>>>>>>>>>>>>>>>>>>>..
+✅ 1. Inheritance
+
+Some CSS properties are inherited by default (mainly text-related).
+
+Others are NOT inherited by default (mainly box model & layout).
+
+Inherited by default
+
+color
+
+font properties (font-family, font-size, etc.)
+
+line-height
+
+visibility
+
+Not inherited by default
+
+background
+
+margin, padding
+
+border
+
+width, height
+
+opacity
+
+👉 You can force inheritance:
+
+p { background-color: inherit; }
+
+✅ 2. Cascading (Conflict Resolution Rules)
+
+When multiple rules apply to the same element, CSS decides the winner in this order:
+
+Importance
+
+!important > everything else
+
+Specificity
+
+Inline styles → 1000
+
+ID selector → 100
+
+Class / attribute / pseudo-class → 10
+
+Element / pseudo-element → 1
+
+Source Order
+
+If same specificity, the last declared rule wins.
+
+✅ 3. Specificity Examples
+Selector	Specificity Score
+p	1
+.class	10
+#id	100
+p.class	11
+div p	2
+style="..."	1000
+p { color:red !important; }	∞ (beats all)
+✅ 4. Inheritance + Cascade Together
+
+Example:
+
+body { color: blue; }      /* inherited by children */
+p { color: green; }        /* overrides inheritance */
+#special { color: red; }   /* higher specificity */
+p { color: purple !important; } /* final winner */
+
+
+Final color for <p id="special">: purple ✅
+
+✅ 5. Quick Analogy
+
+Inheritance = traits passed from parents to children (like eye color).
+
+Cascading = rules to solve conflicts when multiple styles apply (like deciding whose opinion wins).
+
+Specificity = priority levels in those rules.
+
+⚡ Golden Rule:
+👉 !important > Inline > ID > Class > Element > Inherited
