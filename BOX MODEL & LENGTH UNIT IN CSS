@@ -1,0 +1,93 @@
+Every element in web design is a rectangular box.
+CSS Box Model contains 4 parts which are (from out to in)
+Padding
+Margin
+Border
+Content
+The width and height properties of CSS control the content area of the box
+Padding Box
+White space around the content
+Controlled using padding-* properties
+Margin Box
+Outermost layer wrapping content+padding+border.
+Decides distance between the current box and other elements.
+Controlled using margin-* properties
+Content box
+area where content is displayed.
+Can be resized using width and height properties.
+Border Box
+Wraps the content + padding
+Controlled with border-* properties
+BOX SIZING:
+The following table indicates whether the property is included in the element's calculation of height and width when it has the respective box-sizing
+
+ Property		box-sizing:content-box (default)      box-sizing: border-box
+ content       Yes                                    Yes
+ padding        No                                    Yes
+ border         No                                    Yes
+ margin         No                                    No
+
+ __________________________________________________________________________________________________________________________
+ LENGTH UNITS IN CSS
+ CSS has several different units for expressing a length.
+Properties like width, height, font-size etc can use these values.
+Length in CSS is defined by a number followed by a unit.
+There are two types of units:
+Absolute :  
+We have a scenario wherein we want to display content of fixed length
+Absolute length displays content same on every device.
+Examples are - pixels (px)
+Physical units can also be mapped to pixels in CSS
+Inches (in)
+Centimeter (cm)
+Millimeter (mm)
+PIXELS:
+Pixels are the most common measurement unit, which allow us to set a length in pixels (px).
+It is a standardization of measurement used across the web and don’t have anything to do with the literal pixels of your display device.
+ <p style="font-size: 30px;">
+Content using absolute length units will display same on every device. 
+ Absolute lengths lack flexibility
+ RELATIVE UNITS:
+ Relative units in CSS can be split into three major categories
+Font Relative Lengths - depend on the font size
+Example - em, rem, etc. 
+Viewport Relative Lengths - depend on the size of the screen/viewport
+Example - vh, vw, vmin, vmax
+Parent Relative Lengths - depend on the size of the parent.
+Example - %
+FONT RELATIVE UNITS:
+.parent {
+  font-size: 9px;
+}
+.ems {
+  font-size: 1.5em;
+}
+.rems {
+  font-size: 1.5rem;
+}
+VIEWPORT RELATIVE UNITS:
+.twentyfive_vh {
+  height: 25vh;
+  background-color: red;
+}
+.fifty_vw {
+  width: 50vw;
+  background-color: green;
+}
+.parent {
+  width: 50%;
+  background-color: pink;
+}
+PARENT RELATIVE UNITS:
+.parent {
+  font-size: 32px;
+}
+.child {
+  font-size: 50%;
+}
+WHICH UNIT TO USE IN WHICH CASE:
+vh and vw: When you want an element to take up a certain percentage of the screen's height, and certain percentage of the screen’s width respectively.
+%: Setting widths and heights in percentages also allows elements to scale relative to their containing element.
+em: For margin and padding, as they adjust according to the font size of the parent element.
+rem: For font-size, as the font will scale consistently with the change of the HTML font size.
+
