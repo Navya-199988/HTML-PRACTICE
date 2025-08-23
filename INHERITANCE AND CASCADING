@@ -483,3 +483,76 @@ Specificity = priority levels in those rules.
 
 ⚡ Golden Rule:
 👉 !important > Inline > ID > Class > Element > Inherited
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      color: purple;
+    }
+    p {
+      color: blue;
+      font-size: 18px;
+    }
+    .special {
+      color: green;
+      font-family: "Courier New", monospace;
+    }
+    #unique {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <p>This is normal paragraph</p>
+  <p class="special">This is special paragraph</p>
+  <p id="unique" class="special">This is unique paragraph</p>
+  <p style="color: orange;">This is inline styled paragraph</p>
+</body>
+</html>
+Rule Analysis:
+Body → gives font = Georgia, color = purple
+
+(inherited unless overridden)
+
+p → overrides:
+
+color = blue
+
+font-size = 18px
+
+.special → overrides for that class:
+
+color = green
+
+font-family = Courier New
+
+#unique → overrides:
+
+color = red (ID beats class)
+
+Inline style → strongest (overrides everything with same property).
+
+Final Output:
+First <p> → blue text, Georgia font, 18px
+
+Second <p class="special"> → green text, Courier New font, 18px
+
+Third <p id="unique" class="special"> → red text, Courier New font, 18px
+
+Fourth <p style="color: orange;"> → orange text, Georgia font, 18px
+
+✅ Answer Summary:
+
+Normal → Blue + Georgia
+
+Special → Green + Courier New
+
+Unique → Red + Courier New
+
+Inline → Orange + Georgia
