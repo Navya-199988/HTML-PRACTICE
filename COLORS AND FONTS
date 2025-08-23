@@ -1,0 +1,31 @@
+Colors in html are specified in a few different ways
+Predefined Color Names - ~143 colors eg: “blue”
+RGB - Red, Green, Blue eg: rgb(0, 0, 255)
+RGBA - Red, Green, Blue, Alpha Channel (for transparency) eg: rgba(0, 0, 255, 0.9)
+Hex - In HTML, a color can be specified using a hexadecimal value in the form: #rrggbb, where rr (red), gg (green) and bb (blue) are hexadecimal values between 00 and ff (same as decimal 0-255).
+Each value ranging from 0 to 255
+ 0 being the dimmest 
+255 being the brightest value
+RGBA is an extension of rgb
+It is specified with formula
+rgba(red, green, blue, alpha)
+The alpha parameter is a number between 0.0 and 1.0
+0.0 = fully transparent
+1.0 = not transparent
+
+______________________________________________________________________________________________
+A font is a specific size, weight, or style (eg. regular, bold, italic) of a typeface!
+In CSS we can specify the font-family (the typeface), size, weight, and style using the font-* properties.
+Font properties in css----------------------
+Fonts in CSS can be defined with the following properties
+font-family: Defines the typeface(s) which the element should use
+Example: font-family: Arial, Helvetica, sans-serif;
+font-weight: Defines “how thick” the font should look, can be a number or string.
+Example: font-weight: 100; OR font-weight: lighter;
+
+
+font-size: Defined in any CSS Unit (we’ll learn about this later)
+Example: font-size: 12pt; OR font-size: 16px;
+
+
+There are other properties as well like font-style, font-variant, line height, letter-spacing as well etc.
