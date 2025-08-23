@@ -91,3 +91,81 @@ vh and vw: When you want an element to take up a certain percentage of the scree
 em: For margin and padding, as they adjust according to the font size of the parent element.
 rem: For font-size, as the font will scale consistently with the change of the HTML font size.
 
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-size: 20px;
+      color: darkblue;
+    }
+
+    section {
+      font-size: 1.5em;
+      color: green;
+    }
+
+    p {
+      font-size: 2em;
+      color: inherit;
+    }
+
+    .note {
+      font-size: 1rem;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <p>This is inside section</p>
+    <p class="note">This is note paragraph</p>
+  </section>
+</body>
+</html>
+Step-by-Step Analysis
+html { font-size: 16px; }
+
+Root size = 16px (base for rem).
+
+body { font-size: 20px; }
+
+Everything inside body normally starts from 20px.
+
+section { font-size: 1.5em; }
+
+1em = parent’s size (body = 20px).
+
+1.5em = 20 × 1.5 = 30px.
+
+So section base font-size = 30px.
+
+p { font-size: 2em; color: inherit; }
+
+2em = 2 × section’s size = 2 × 30px = 60px.
+
+color: inherit; → inherits green (from section).
+
+.note { font-size: 1rem; color: red; }
+
+1rem = 1 × root size = 16px.
+
+Overrides color → red.
+
+Final Output
+First <p> = font-size: 60px, color: green
+
+Second <p class="note"> = font-size: 16px, color: red
+
+✅ Key takeaway:
+
+em = relative to parent
+
+rem = relative to root (html)
+
+inherit = explicitly inherit parent’s value
+
