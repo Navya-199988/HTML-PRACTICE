@@ -1,0 +1,83 @@
+When two CSS rules are in conflict, it is resolved using the concept of specificity
+More specific the selector, higher the preference
+Hierarchy (from highest specificity to lowest)
+Inline Styles
+ID Selectors
+Class Selectors
+Element Selectors
+When selectors of equal Specificity are in conflict - Lower (or latest) rule in the stylesheet wins
+CODE DEMO:
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Activity</title>
+    <style>
+      main {
+        background-color: red;
+      }
+      .main {
+        background-color: blue;
+      }
+      #main {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="main" id="main" style="background-color: yellow;">
+      <p>This is a para inside child</p>
+    </main>
+  </body>
+</html>
+
+Specificity Order in CSS
+
+Inline styles (inside the style="" attribute) → highest priority
+
+ID selectors (#main) → priority 100
+
+Class selectors (.main) → priority 10
+
+Element selectors (main) → priority 1
+
+So here:
+
+main { background: red; } → lowest priority
+
+.main { background: blue; } → higher than element
+
+#main { background: green; } → higher than class
+
+style="background-color: yellow;" → highest priority → final winner ✅
+
+✅ Final Output:
+
+The <main> element will have a yellow background because inline style overrides everything else.
+_______________________________________________________________________________________________________________________________
+
+2.lets check->>>>>>>>>>>>>>
+HTML
+ <section class="parent">
+   <div class="child">
+     <p>This is a para inside child</p>
+   </div>
+ </section>
+CSS
+.parent {
+   color: steelblue;
+   background-color: lightcyan;
+}
+What happens here:
+
+The <section> with class parent has:
+
+Text color: steelblue
+
+Background color: lightcyan
+
+Since text color (color) is inherited, the <p> inside .child will also appear in steelblue.
+
+The background color (background-color) is not inherited, so only the .parent element’s area will have lightcyan.
+The .child <div> will have transparent background (default), so it shows the parent’s lightcyan.
+
+✅ Output: You’ll see a lightcyan box with text "This is a para inside child" in steelblue.
