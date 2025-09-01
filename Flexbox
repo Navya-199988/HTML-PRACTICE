@@ -1,0 +1,138 @@
+🔹 Step 1: Quick Flexbox Basics Recap
+
+Flexbox works on a container (parent) and its items (children).
+
+display: flex; → makes the parent a flex container.
+
+Main properties:
+
+Direction & flow:
+
+flex-direction: row | column
+
+flex-wrap: wrap | nowrap
+
+Alignment on main axis:
+
+justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly
+
+Alignment on cross axis:
+
+align-items: flex-start | flex-end | center | stretch | baseline
+
+Individual item control:
+
+align-self, flex-grow, flex-shrink, flex-basis.
+
+🔹 Step 2: Hands-On Practice Problems
+
+Here are practice problems you can try in HTML + CSS:
+
+📝 Problem 1: Center a Box
+
+👉 Create a container with one box and center it both vertically and horizontally using flexbox.
+
+<div class="container">
+  <div class="box">Centered</div>
+</div>
+
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: lightgray;
+}
+
+.box {
+  padding: 20px;
+  background: tomato;
+  color: white;
+  font-weight: bold;
+}
+
+📝 Problem 2: Navigation Bar
+
+👉 Make a nav bar with logo on left and links on right.
+
+<nav class="navbar">
+  <div class="logo">MySite</div>
+  <div class="links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: #333;
+  color: white;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+📝 Problem 3: Card Layout
+
+👉 Create 3 cards in a row with equal spacing.
+
+<div class="cards">
+  <div class="card">Card 1</div>
+  <div class="card">Card 2</div>
+  <div class="card">Card 3</div>
+</div>
+
+.cards {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  flex: 1; /* all cards take equal width */
+  padding: 20px;
+  background: lightblue;
+  text-align: center;
+}
+
+📝 Problem 4: Responsive Gallery
+
+👉 Create a gallery of boxes that wrap to the next row when the screen is small.
+
+<div class="gallery">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+</div>
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.item {
+  flex: 1 1 150px; /* grow, shrink, min width */
+  height: 100px;
+  background: orange;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+🔹 Step 3: Fun Practice Sites
+
+If you want games & challenges:
+
+🎯 Flexbox Froggy
+ → Learn by solving puzzles.
+
+🎯 Flexbox Defense
+ → Game with flexbox
