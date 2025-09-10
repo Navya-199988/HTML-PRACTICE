@@ -1,0 +1,274 @@
+1️⃣ CSS Positioning
+
+Positioning tells the browser where to place an element in relation to its normal flow or another element.
+
+Types of positioning:
+
+static (default)
+
+Every element is positioned naturally in the document flow.
+
+No top, left, right, bottom properties apply.
+
+div {
+  position: static; /* default */
+}
+
+
+relative
+
+Keeps the element in the normal flow.
+
+You can shift it relative to its original position using top, left, etc.
+
+Other elements don’t move into its space.
+
+div {
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+
+
+absolute
+
+Removes the element from normal flow.
+
+Positioned relative to the nearest positioned ancestor (relative, absolute, or fixed parent).
+
+div {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+fixed
+
+Sticks the element relative to the viewport (screen).
+
+Doesn’t move when you scroll.
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+
+sticky
+
+Hybrid between relative and fixed.
+
+Behaves like relative until a scroll threshold is crossed, then it sticks (like fixed) within its parent.
+
+nav {
+  position: sticky;
+  top: 0;
+  background: white;
+}
+
+
+📌 Key property with positioning:
+z-index → Controls stacking order.
+
+Higher z-index = element appears on top.
+
+Only works for positioned elements (not static).
+
+
+
+2️⃣ CSS Transitions
+
+Transitions let you animate changes smoothly when CSS properties change (hover, focus, JS changes, etc.).
+
+Syntax:
+.element {
+  transition: property duration timing-function delay;
+}
+
+
+property → what to animate (color, background, transform, all)
+
+duration → how long (0.5s, 300ms)
+
+timing-function → speed curve (ease, linear, ease-in, ease-out, cubic-bezier)
+
+delay → wait before starting (1s)
+
+Example:
+button {
+  background: blue;
+  color: white;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+button:hover {
+  background: green;
+  transform: scale(1.1);
+}
+
+
+👉 Without transition, hover changes instantly.
+👉 With transition, it smoothly animates.
+
+3️⃣ Threshold (in IntersectionObserver)
+
+Not a CSS property, but important for scroll-based effects.
+
+When you use IntersectionObserver in JS, threshold defines how much of the element must be visible in the viewport before the callback triggers.
+
+Example:
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        console.log("Element is visible");
+      }
+    });
+  },
+  { threshold: 0.5 } // 50% visible
+);
+
+observer.observe(document.querySelector(".target"));
+
+
+threshold: 0 → callback triggers as soon as 1px is visible.
+
+threshold: 1.0 → triggers only when the whole element is visible.
+
+threshold: [0, 0.5, 1] → triggers multiple times (at 0%, 50%, and 100%).
+
+✅ In summary:
+
+Positioning → controls layout (static, relative, absolute, fixed, sticky).
+
+Transitions → add smooth animations between state changes.
+
+Threshold → JS concept to decide how much of an element must be visible to trigger scroll effects.
+
+🔹 transition-duration
+
+This controls how long the animation takes.
+
+Example:
+
+div {
+  transition: background 0.5s;
+}
+div:hover {
+  background: red;
+}
+
+
+If you hover, the background color changes over 0.5 seconds (500ms).
+
+So it doesn’t wait; it animates immediately but takes 0.5s to finish.
+
+🔹 transition-delay
+
+This controls when the animation starts.
+
+Example:
+
+div {
+  transition: background 0.5s ease 300ms;
+}
+
+
+Here:
+
+0.5s = duration (how long it takes once it starts).
+
+300ms = delay (wait time before starting).
+
+So if you hover:
+
+The element will wait 300ms first.
+
+Then it will animate the background color over 0.5s.
+
+✅ In short:
+
+duration = how long the change takes.
+
+delay = when to start the change.
+
+
+transition concepts---------------------------
+1. linear
+
+Changes at a constant speed from start to end.
+
+No acceleration or deceleration.
+
+Example: Imagine a car going at the same speed throughout.
+
+transition: all 1s linear;
+
+2. ease (default)
+
+Starts slowly, speeds up in the middle, slows down at the end.
+
+Smooth, natural feel (good for UI transitions).
+
+transition: all 1s ease;
+
+3. ease-in
+
+Starts slowly, then speeds up at the end.
+
+Looks like acceleration.
+
+Example: A car starting from rest and then zooming away.
+
+transition: all 1s ease-in;
+
+4. ease-out
+
+Starts fast, then slows down toward the end.
+
+Example: A car braking smoothly to a stop.
+
+transition: all 1s ease-out;
+
+5. cubic-bezier(x1, y1, x2, y2)
+
+Custom curve you define.
+
+Gives full control over acceleration and deceleration.
+
+Values range between 0 and 1 (though you can go outside for dramatic effects).
+
+Example:
+
+transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+
+
+This is the same as ease-in-out (common for Material Design).
+
+👉 You can play with cubic-bezier curves here: cubic-bezier.com
+ (drag handles to see the curve).
+
+⚡ Quick Visual:
+
+linear → constant speed
+
+ease → slow → fast → slow
+
+ease-in → slow → fast
+
+ease-out → fast → slow
+
+cubic-bezier → you decide
+
+we will use all of these 
+linear → robots, progress, loaders
+
+ease → everyday UI changes
+
+ease-in → entering animations
+
+ease-out → exiting animations
+
+cubic-bezier → when you want to stand out with custom motion
